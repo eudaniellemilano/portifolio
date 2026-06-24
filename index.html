@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danielle Milano — Analista de Dados</title>
+  <title>Danielle Milano — Data Analyst</title>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -53,12 +53,37 @@
       font-size: 1.1rem; font-weight: 700;
       color: var(--white); letter-spacing: -0.02em;
     }
+    .nav-right { display: flex; align-items: center; gap: 2rem; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       color: var(--muted); text-decoration: none;
       font-size: 0.875rem; font-weight: 500; transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--text); }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex; align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      padding: 0.35rem 0.7rem;
+      font-size: 0.75rem; font-weight: 600;
+      cursor: pointer; border: none;
+      background: transparent;
+      color: var(--muted);
+      transition: all 0.2s;
+      letter-spacing: 0.05em;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .lang-btn:hover:not(.active) { color: var(--text); }
 
     /* HERO */
     .hero {
@@ -115,7 +140,6 @@
       display: flex; align-items: center; justify-content: center;
     }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-photo-placeholder { color: var(--muted); font-size: 0.8rem; text-align: center; padding: 1rem; }
 
     /* SECTIONS */
     section { max-width: 1100px; margin: 0 auto; padding: 6rem 4rem; }
@@ -223,8 +247,6 @@
     .featured-stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; }
 
     /* CONTACT */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-intro { color: var(--muted); font-size: 1rem; line-height: 1.8; }
     .contact-links { display: flex; flex-direction: column; gap: 1rem; }
     .contact-item {
       display: flex; align-items: center; gap: 1rem;
@@ -261,7 +283,6 @@
       hr.divider { margin: 0 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .project-card.featured { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
@@ -275,24 +296,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav>
   <div class="nav-logo">DM</div>
-  <ul class="nav-links">
-    <li><a href="#sobre">Sobre</a></li>
-    <li><a href="#projetos">Projetos</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#sobre" data-pt="Sobre" data-en="About">About</a></li>
+      <li><a href="#projetos" data-pt="Projetos" data-en="Projects">Projects</a></li>
+      <li><a href="#contato" data-pt="Contato" data-en="Contact">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    </div>
+  </div>
 </nav>
 
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Analista de Dados</div>
+    <div class="hero-eyebrow" data-pt="Analista de Dados" data-en="Data Analyst">Data Analyst</div>
     <h1>Danielle<br/><span>Milano</span></h1>
-    <p class="hero-desc">
-      Transformo dados em decisões. Atuo com análise, engenharia e estratégia de dados —
-      do SQL ao modelo de machine learning, do evento rastreado ao insight executivo.
+    <p class="hero-desc" data-pt="Transformo dados em decisões. Atuo com análise, engenharia e estratégia de dados — do SQL ao modelo de machine learning, do evento rastreado ao insight executivo." data-en="I turn data into decisions. I work across data analysis, engineering and strategy — from SQL to machine learning models, from tracked events to executive insights.">
+      I turn data into decisions. I work across data analysis, engineering and strategy — from SQL to machine learning models, from tracked events to executive insights.
     </p>
     <div class="hero-cta">
-      <a href="#projetos" class="btn btn-primary">Ver projetos</a>
-      <a href="#contato" class="btn btn-outline">Entrar em contato</a>
+      <a href="#projetos" class="btn btn-primary" data-pt="Ver projetos" data-en="View projects">View projects</a>
+      <a href="#contato" class="btn btn-outline" data-pt="Entrar em contato" data-en="Get in touch">Get in touch</a>
     </div>
   </div>
   <div class="hero-photo">
@@ -303,18 +329,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <hr class="divider" />
 
 <section id="sobre">
-  <div class="section-label">Sobre mim</div>
-  <h2 class="section-title">Dados como linguagem,<br/>estratégia como resultado.</h2>
+  <div class="section-label" data-pt="Sobre mim" data-en="About me">About me</div>
+  <h2 class="section-title" data-pt="Dados como linguagem,<br/>estratégia como resultado." data-en="Data as language,<br/>strategy as outcome.">Data as language,<br/>strategy as outcome.</h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>Analista de dados com formação em marketing, e pós técnico em andamento em Data Science pela FIAP — onde meu time está entre os finalistas do NEXT 2025. Minha atuação atravessa análise, engenharia e estratégia de dados.</p>
-      <p>Trabalho com SQL para consultas complexas e otimizadas, Python para análise estatística e modelagem, e bancos como BigQuery e PgAdmin. Aplico metodologias como testes A/B, segmentação RFM e K-Means para identificar padrões e embasar decisões.</p>
-      <p>No campo de instrumentação digital, estruturo coleta de eventos via Google Tag Manager e GA4, garantindo qualidade dos dados que alimentam análises de funil, engajamento e conversão.</p>
-      <p>Levo insights diretamente para times executivos, construo projeções de ganho e economia, e participo ativamente do planejamento estratégico com base em dados.</p>
+      <p data-pt="Analista de dados com formação em marketing, e pós técnico em andamento em Data Science pela FIAP — onde meu time está entre os finalistas do NEXT 2025. Minha atuação atravessa análise, engenharia e estratégia de dados." data-en="Data analyst with a background in marketing and an ongoing technical postgraduate in Data Science at FIAP — where my team is among the finalists of NEXT 2025. My work spans data analysis, engineering and strategy.">Data analyst with a background in marketing and an ongoing technical postgraduate in Data Science at FIAP — where my team is among the finalists of NEXT 2025. My work spans data analysis, engineering and strategy.</p>
+      <p data-pt="Trabalho com SQL para consultas complexas e otimizadas, Python para análise estatística e modelagem, e bancos como BigQuery e PgAdmin. Aplico metodologias como testes A/B, segmentação RFM e K-Means para identificar padrões e embasar decisões." data-en="I work with SQL for complex and optimized queries, Python for statistical analysis and modeling, and databases like BigQuery and PgAdmin. I apply methodologies such as A/B testing, RFM segmentation and K-Means to identify patterns and support decisions.">I work with SQL for complex and optimized queries, Python for statistical analysis and modeling, and databases like BigQuery and PgAdmin. I apply methodologies such as A/B testing, RFM segmentation and K-Means to identify patterns and support decisions.</p>
+      <p data-pt="No campo de instrumentação digital, estruturo coleta de eventos via Google Tag Manager e GA4, garantindo qualidade dos dados que alimentam análises de funil, engajamento e conversão." data-en="In digital instrumentation, I structure event tracking via Google Tag Manager and GA4, ensuring data quality that feeds funnel, engagement and conversion analyses.">In digital instrumentation, I structure event tracking via Google Tag Manager and GA4, ensuring data quality that feeds funnel, engagement and conversion analyses.</p>
+      <p data-pt="Levo insights diretamente para times executivos, construo projeções de ganho e economia, e participo ativamente do planejamento estratégico com base em dados." data-en="I bring insights directly to executive teams, build revenue and cost projection models, and actively participate in data-driven strategic planning.">I bring insights directly to executive teams, build revenue and cost projection models, and actively participate in data-driven strategic planning.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-group">
-        <div class="skill-group-label">Linguagens</div>
+        <div class="skill-group-label" data-pt="Linguagens" data-en="Languages">Languages</div>
         <div class="skill-tags">
           <span class="skill-tag">SQL</span>
           <span class="skill-tag">Python</span>
@@ -322,7 +348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Bancos de Dados</div>
+        <div class="skill-group-label" data-pt="Bancos de Dados" data-en="Databases">Databases</div>
         <div class="skill-tags">
           <span class="skill-tag">BigQuery</span>
           <span class="skill-tag">PgAdmin</span>
@@ -330,7 +356,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Visualização & BI</div>
+        <div class="skill-group-label" data-pt="Visualização & BI" data-en="Visualization & BI">Visualization & BI</div>
         <div class="skill-tags">
           <span class="skill-tag">Power BI</span>
           <span class="skill-tag">Hex</span>
@@ -338,16 +364,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Tagueamento</div>
+        <div class="skill-group-label" data-pt="Tagueamento" data-en="Tracking">Tracking</div>
         <div class="skill-tags">
           <span class="skill-tag">Google Tag Manager</span>
           <span class="skill-tag">GA4</span>
         </div>
       </div>
       <div class="skill-group">
-        <div class="skill-group-label">Metodologias</div>
+        <div class="skill-group-label" data-pt="Metodologias" data-en="Methodologies">Methodologies</div>
         <div class="skill-tags">
-          <span class="skill-tag">Teste A/B</span>
+          <span class="skill-tag">A/B Testing</span>
           <span class="skill-tag">RFM</span>
           <span class="skill-tag">K-Means</span>
           <span class="skill-tag">Machine Learning</span>
@@ -360,37 +386,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <hr class="divider" />
 
 <section id="projetos">
-  <div class="section-label">Projetos</div>
-  <h2 class="section-title">Alguns dos meus trabalhos.</h2>
+  <div class="section-label" data-pt="Projetos" data-en="Projects">Projects</div>
+  <h2 class="section-title" data-pt="Alguns dos meus trabalhos." data-en="Some of my work.">Some of my work.</h2>
   <div class="projects-grid">
 
     <div class="project-card featured">
       <div class="featured-content">
-        <div class="featured-badge">🏆 Finalista FIAP NEXT 2025</div>
-        <div class="project-title" style="font-size:1.6rem;">Plataforma Clara — Análise de Risco de Crédito com ML</div>
-        <p class="project-desc">
-          Plataforma de análise de liquidez e risco de crédito desenvolvida como projeto na FIAP.
-          Utilizamos machine learning para gerar scores preditivos de inadimplência em carteiras de investimento,
-          com relatórios consolidados por bloco de liquidez e matriz de risco por empresa.
-          Minha contribuição foi no treinamento do modelo preditivo, definição de features e encoding das variáveis categóricas.
-        </p>
+        <div class="featured-badge">🏆 <span data-pt="Finalista FIAP NEXT 2025" data-en="FIAP NEXT 2025 Finalist">FIAP NEXT 2025 Finalist</span></div>
+        <div class="project-title" style="font-size:1.6rem;">Clara Platform — Credit Risk Analysis with ML</div>
+        <p class="project-desc" data-pt="Plataforma de análise de liquidez e risco de crédito desenvolvida como projeto na FIAP. Utilizamos machine learning para gerar scores preditivos de inadimplência em carteiras de investimento, com relatórios consolidados por bloco de liquidez e matriz de risco por empresa. Minha contribuição foi no treinamento do modelo preditivo, definição de features e encoding das variáveis categóricas." data-en="Liquidity and credit risk analysis platform developed as a FIAP project. We used machine learning to generate predictive default scores for investment portfolios, with consolidated reports by liquidity block and a risk matrix per company. My contribution was in training the predictive model, defining features and encoding categorical variables.">Liquidity and credit risk analysis platform developed as a FIAP project. We used machine learning to generate predictive default scores for investment portfolios, with consolidated reports by liquidity block and a risk matrix per company. My contribution was in training the predictive model, defining features and encoding categorical variables.</p>
         <div class="project-stack">
           <span>Python</span><span>Scikit-learn</span><span>Machine Learning</span>
           <span>Feature Engineering</span><span>Risk Scoring</span>
         </div>
-        <a href="https://plataforma-clara-navy-piano.reflex.run/" target="_blank" class="project-link">Ver plataforma →</a>
+        <a href="https://plataforma-clara-navy-piano.reflex.run/" target="_blank" class="project-link" data-pt="Ver plataforma →" data-en="View platform →">View platform →</a>
       </div>
       <div class="featured-meta">
         <div class="featured-stat">
-          <div class="featured-stat-value">R$ 3,4B</div>
-          <div class="featured-stat-label">Volume total analisado na carteira</div>
+          <div class="featured-stat-value">R$ 3.4B</div>
+          <div class="featured-stat-label" data-pt="Volume total analisado na carteira" data-en="Total portfolio volume analyzed">Total portfolio volume analyzed</div>
         </div>
         <div class="featured-stat">
-          <div class="featured-stat-value">64 aportes</div>
-          <div class="featured-stat-label">Avaliados em 5 blocos de liquidez</div>
+          <div class="featured-stat-value">64</div>
+          <div class="featured-stat-label" data-pt="Aportes avaliados em 5 blocos de liquidez" data-en="Contributions evaluated across 5 liquidity blocks">Contributions evaluated across 5 liquidity blocks</div>
         </div>
         <div class="featured-stat">
-          <div class="featured-stat-value">5 blocos</div>
+          <div class="featured-stat-value">5 blocks</div>
           <div class="featured-stat-label">Ametista · Rubi · Esmeralda · Safira · Diamante</div>
         </div>
       </div>
@@ -398,42 +419,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <a href="https://app.notion.com/p/An-lise-de-Venda-SQL-e-Excel-136d1047a00f81a3833cc8e389e1443b" target="_blank" class="project-card">
       <div class="project-tag">SQL · Excel</div>
-      <div class="project-title">Análise de Vendas — Mercado Automotivo</div>
-      <p class="project-desc">Análise completa do funil de vendas com consultas SQL otimizadas e relatórios visuais em Excel. Identificação de padrões de conversão e performance por modelo e marca.</p>
-      <div class="project-stack"><span>SQL</span><span>Excel</span><span>Análise de Funil</span></div>
-      <span class="project-link">Ver projeto →</span>
+      <div class="project-title" data-pt="Análise de Vendas — Mercado Automotivo" data-en="Sales Analysis — Automotive Market">Sales Analysis — Automotive Market</div>
+      <p class="project-desc" data-pt="Análise completa do funil de vendas com consultas SQL otimizadas e relatórios visuais em Excel. Identificação de padrões de conversão e performance por modelo e marca." data-en="Full sales funnel analysis with optimized SQL queries and visual reports in Excel. Identification of conversion patterns and performance by model and brand.">Full sales funnel analysis with optimized SQL queries and visual reports in Excel. Identification of conversion patterns and performance by model and brand.</p>
+      <div class="project-stack"><span>SQL</span><span>Excel</span><span>Funnel Analysis</span></div>
+      <span class="project-link" data-pt="Ver projeto →" data-en="View project →">View project →</span>
     </a>
 
     <a href="https://app.notion.com/p/Mapeamento-de-Leads-SQL-e-Excel-136d1047a00f819aa21ec766549b3869" target="_blank" class="project-card">
       <div class="project-tag">SQL · Excel</div>
-      <div class="project-title">Mapeamento de Leads — Mercado Automotivo</div>
-      <p class="project-desc">Mapeamento e segmentação de leads com SQL, identificando perfis de maior propensão à compra e oportunidades de qualificação na base de dados.</p>
-      <div class="project-stack"><span>SQL</span><span>Excel</span><span>Segmentação</span></div>
-      <span class="project-link">Ver projeto →</span>
+      <div class="project-title" data-pt="Mapeamento de Leads — Mercado Automotivo" data-en="Lead Mapping — Automotive Market">Lead Mapping — Automotive Market</div>
+      <p class="project-desc" data-pt="Mapeamento e segmentação de leads com SQL, identificando perfis de maior propensão à compra e oportunidades de qualificação na base de dados." data-en="Lead mapping and segmentation with SQL, identifying high-propensity buyer profiles and qualification opportunities in the database.">Lead mapping and segmentation with SQL, identifying high-propensity buyer profiles and qualification opportunities in the database.</p>
+      <div class="project-stack"><span>SQL</span><span>Excel</span><span>Segmentation</span></div>
+      <span class="project-link" data-pt="Ver projeto →" data-en="View project →">View project →</span>
     </a>
 
     <a href="https://app.notion.com/p/Elabora-o-de-Programas-Simples-Python-13cd1047a00f8051a333ca9c68af2e66" target="_blank" class="project-card">
       <div class="project-tag">Python</div>
-      <div class="project-title">Elaboração de Programas — Python</div>
-      <p class="project-desc">Desenvolvimento de programas em Python para automação e análise de dados, aplicando lógica de programação, manipulação de estruturas e tratamento de dados.</p>
-      <div class="project-stack"><span>Python</span><span>Automação</span><span>Análise de Dados</span></div>
-      <span class="project-link">Ver projeto →</span>
+      <div class="project-title" data-pt="Elaboração de Programas — Python" data-en="Program Development — Python">Program Development — Python</div>
+      <p class="project-desc" data-pt="Desenvolvimento de programas em Python para automação e análise de dados, aplicando lógica de programação, manipulação de estruturas e tratamento de dados." data-en="Development of Python programs for automation and data analysis, applying programming logic, data structure manipulation and data processing.">Development of Python programs for automation and data analysis, applying programming logic, data structure manipulation and data processing.</p>
+      <div class="project-stack"><span>Python</span><span>Automation</span><span>Data Analysis</span></div>
+      <span class="project-link" data-pt="Ver projeto →" data-en="View project →">View project →</span>
     </a>
 
     <a href="https://github.com/eudaniellemilano/atividadeextensionista" target="_blank" class="project-card">
       <div class="project-tag">Java · FIAP</div>
-      <div class="project-title">Atividade Extensionista — App em Java</div>
-      <p class="project-desc">Desenvolvimento de aplicação em Java como atividade extensionista na FIAP, aplicando conceitos de orientação a objetos, estruturas de dados e desenvolvimento de software.</p>
+      <div class="project-title" data-pt="Atividade Extensionista — App em Java" data-en="Extension Activity — Java App">Extension Activity — Java App</div>
+      <p class="project-desc" data-pt="Desenvolvimento de aplicação em Java como atividade extensionista na FIAP, aplicando conceitos de orientação a objetos, estruturas de dados e desenvolvimento de software." data-en="Development of a Java application as an extension activity at FIAP, applying object-oriented concepts, data structures and software development practices.">Development of a Java application as an extension activity at FIAP, applying object-oriented concepts, data structures and software development practices.</p>
       <div class="project-stack"><span>Java</span><span>OOP</span><span>GitHub</span></div>
-      <span class="project-link">Ver repositório →</span>
+      <span class="project-link" data-pt="Ver repositório →" data-en="View repository →">View repository →</span>
     </a>
 
     <a href="https://app.notion.com/p/Google-Tag-Manager-387d1047a00f8000a935dcc5e3d9b969" target="_blank" class="project-card">
       <div class="project-tag">GTM · GA4</div>
-      <div class="project-title">Google Tag Manager — Implementação e Tagueamento</div>
-      <p class="project-desc">Implementação de GTM em site real hospedado no GitHub Pages. Configuração de container, instalação de snippets, validação via Tag Assistant e estruturação de coleta de eventos para análise de comportamento digital.</p>
+      <div class="project-title" data-pt="Google Tag Manager — Implementação e Tagueamento" data-en="Google Tag Manager — Implementation & Tracking">Google Tag Manager — Implementation & Tracking</div>
+      <p class="project-desc" data-pt="Implementação de GTM em site real hospedado no GitHub Pages. Configuração de container, instalação de snippets, validação via Tag Assistant e estruturação de coleta de eventos para análise de comportamento digital." data-en="GTM implementation on a real site hosted on GitHub Pages. Container setup, snippet installation, Tag Assistant validation and event collection structuring for digital behavior analysis.">GTM implementation on a real site hosted on GitHub Pages. Container setup, snippet installation, Tag Assistant validation and event collection structuring for digital behavior analysis.</p>
       <div class="project-stack"><span>GTM</span><span>GA4</span><span>GitHub Pages</span><span>Tag Assistant</span></div>
-      <span class="project-link">Ver documentação →</span>
+      <span class="project-link" data-pt="Ver documentação →" data-en="View documentation →">View documentation →</span>
     </a>
 
   </div>
@@ -442,8 +463,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <hr class="divider" />
 
 <section id="contato">
-  <div class="section-label">Contato</div>
-  <h2 class="section-title">Vamos conversar.</h2>
+  <div class="section-label" data-pt="Contato" data-en="Contact">Contact</div>
+  <h2 class="section-title" data-pt="Vamos conversar." data-en="Let's talk.">Let's talk.</h2>
   <div class="contact-links">
     <a href="mailto:dani.milano09@gmail.com" class="contact-item">
       <div class="contact-icon">✉</div>
@@ -475,11 +496,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
   </div>
 </section>
-  
+
 <footer>
-  <span>© Danielle Milano 2026 · Todos os direitos reservados.</span>
-  <span>Analista de Dados · São Paulo, BR</span>
+  <span>© Danielle Milano 2026 · <span data-pt="Todos os direitos reservados." data-en="All rights reserved.">All rights reserved.</span></span>
+  <span data-pt="Analista de Dados · São Paulo, BR" data-en="Data Analyst · São Paulo, BR">Data Analyst · São Paulo, BR</span>
 </footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (text) el.innerHTML = text;
+    });
+
+    document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    document.title = lang === 'pt' ? 'Danielle Milano — Analista de Dados' : 'Danielle Milano — Data Analyst';
+  }
+</script>
 
 </body>
 </html>
